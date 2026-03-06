@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 TITLE_LENGTH_MAX = 30
 DESCRIPTION_LENGTH_MAX = 500
@@ -38,11 +39,12 @@ def main(project_title, element_to_edit, new_value=None):
     if element_to_edit == "data":
         # Tells to main.c where project will the user work on
         with open("temp.txt", 'w+') as temp_file:
-            temp_file.write(project_title)
+            temp_file.write(f"0;\n{project_title}<")
 
 
 
 if __name__ == "__main__":
+
     project_path = os.listdir("gleten-projects")
     projects_found = []
 
