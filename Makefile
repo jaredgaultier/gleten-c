@@ -7,7 +7,8 @@ SRC = src/main.c \
 	src/gletenlibs/gleten-string/_gotoxy.c \
 	src/gletenlibs/gleten-string/clear.c \
 	src/gletenlibs/gleten-string/likeness.c \
-	src/gletenlibs/gleten-string/remove-newline.c 
+	src/gletenlibs/gleten-string/remove-newline.c \
+	src/gletenlibs/gleten-string/likeness-find.c
 
 OBJ = $(SRC:.c=.o)
 DOBJ = $(OBJ:.o=.d)
