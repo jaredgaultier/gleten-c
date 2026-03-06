@@ -27,3 +27,7 @@ if __name__ == "__main__":
 
 
     print("Project was successfully created!")
+
+
+if __name__ == '__main__':
+    main()
