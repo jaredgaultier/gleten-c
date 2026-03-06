@@ -1,22 +1,9 @@
 #ifndef PANEL_H
 #define PANEL_H
 
+#include <stdio.h>
+
 int displayPanel(char const *projectTitle);
-
-static char const *commandList[] = {
-    "makefile",
-    "deletefile",
-
-    "fileExists",
-
-    "makedir",
-    "deletedir",
-    "dirExists",
-
-    "editWallpaper",
-    "if",
-    NULL
-};
 
 void cosmeticXAxisCleaning(size_t y, size_t y_limit);
 

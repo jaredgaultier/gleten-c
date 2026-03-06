@@ -2,38 +2,38 @@
 #include <stdlib.h>
 
 
-#include "panel/panel.h"
+#include "../include/panel.h"
+
+#define PYTHON_SRC "gletenlibs/info-control/"
 
 
 
-int main(int argc, char const *argv[]){
+int main(void){
 
     printf("Gleten C version (1.0)\n");
-
-    displayPanel("poponga");
 
     char opc;
     
     printf("1: Make a new project\n");
-    printf("2: Edit an existing project\n>>");
-    printf("3: Delete a project");
+    printf("2: Edit an existing project");
+    printf("3: Delete a project\n>>");
     opc = getchar();
 
 
     switch (opc) {
         case '1':
 
-            system("python3 gletenlibs/info-control/json-makeproject.py");
+            system("python3 src/gletenlibs/info-control/ json-makeproject.py");
             break;
 
         case '2':
 
-            system("python3 gletenlibs/info-control/json-editproject.py");            
+            system("python3 src/gletenlibs/info-control/json-editproject.py");            
             break;
 
         case '3':
 
-            system("python3 gletenlibs/ihfo-control/json-deleteproject.py");
+            system("python3 src/gletenlibs/ihfo-control/json-deleteproject.py");
             break;
 
         default:

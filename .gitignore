@@ -1,9 +1,12 @@
 *.o
 *.out
 *.exe
+*.d
 
 src/gletenlibs/info-control/test.py
 notas.txt
+
+program
 
 build/
 

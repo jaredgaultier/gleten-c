@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-#include "gleten-string.h"
+#include "../include/gleten-string.h"
 
 
 

@@ -5,7 +5,7 @@ TITLE_LENGTH_MAX = 30
 DESCRIPTION_LENGTH_MAX = 500
 AUTHOR_LENGTH_MAX = 20
 
-def main(project_title, element_to_edit, new_value):
+def main(project_title, element_to_edit, new_value=None):
     with open(f"gleten-projects/{project_title}/info.json", 'r') as json_file:
         _project_info = json.load(json_file)
 
@@ -35,6 +35,13 @@ def main(project_title, element_to_edit, new_value):
     os.rename(f"gleten-projects/{project_title}", f"gleten-projects/{json_structure["title"]}")
 
 
+    if element_to_edit == "data":
+        # Tells to main.c where project will the user work on
+        with open("temp.txt", 'w+') as temp_file:
+            temp_file.write(project_title)
+
+
+
 if __name__ == "__main__":
     project_path = os.listdir("gleten-projects")
     projects_found = []
@@ -57,12 +64,15 @@ if __name__ == "__main__":
     
     while True:
         _element_to_edit = str(input("Element to edit: "))
-        if not _element_to_edit in ["title", "description", "author"]:
+        if not _element_to_edit in ["title", "description", "author", "data"]:
             print("\nNot valid element.")
 
         else:
             break
 
-    _new_value = str(input("\nNew value: "))
+    if _element_to_edit != "data":
+        _new_value = str(input("\nNew value: "))
+        main(_option, _element_to_edit, _new_value)
 
-    main(_option, _element_to_edit, _new_value)
+    else:
+        main(_option, _element_to_edit)

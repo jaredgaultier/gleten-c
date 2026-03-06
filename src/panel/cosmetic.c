@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "panel.h"
-#include "../gletenlibs/gleten-string/gleten-string.h"
+#include "../include/panel.h"
+#include "../include/gleten-string.h"
 
 
 void cosmeticXAxisCleaning(size_t y, size_t y_limit){
