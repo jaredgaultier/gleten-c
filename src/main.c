@@ -4,8 +4,6 @@
 
 #include "../include/panel.h"
 
-#define PYTHON_SRC "gletenlibs/info-control/"
-
 
 
 int main(void){
@@ -23,7 +21,7 @@ int main(void){
     switch (opc) {
         case '1':
 
-            system("python3 src/gletenlibs/info-control/ json-makeproject.py");
+            system("python3 src/gletenlibs/info-control/json-makeproject.py");
             break;
 
         case '2':
