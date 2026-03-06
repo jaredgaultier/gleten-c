@@ -1,0 +1,16 @@
+*.o
+*.out
+*.exe
+
+src/gletenlibs/info-control/test.py
+notas.txt
+
+build/
+
+*.log
+
+*.tmp
+
+.vscode/
+.idea/
+*.swp
