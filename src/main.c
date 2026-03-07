@@ -17,33 +17,18 @@ int readTemp(){
     if (fptr == NULL)
         return 1;
 
-    char c;
-    size_t n = 0;
-    
-    while ((c = fgetc(fptr)) != EOF){
-        fileBuffer[n] = c;
+    fgets(fileBuffer, sizeof(fileBuffer), fptr);
 
-        if(DEBUG)printf("dbg;c: %c\n", fileBuffer[n]);
-        
-        n++;
+    size_t j = 0;
+    for (size_t i = 2;fileBuffer[i] != '<' && fileBuffer[i] != '\0';i++){
+        projectName[j++] = fileBuffer[i];
     }
 
-    // WIP: NOT WORKING, BE CAREFUL
-    // Memory violation issues, don't run
-    fileBuffer[n + 1] = '\0';
-
-    if (fileBuffer[0] == '0'){
-        for(size_t i = 2;fileBuffer[i] != '<' || fileBuffer[i] != '\0';i++){
-            projectName[i-2] = fileBuffer[i];
-        }
-    }
-
-    if(DEBUG)printf("dbg;projectName: %s", projectName);
-
+    projectName[j] = '\0';
 
     fclose(fptr);
 
-    // displayPanel((char*)projectName);
+    displayPanel((char*)projectName);
 
     return 0;
 }
