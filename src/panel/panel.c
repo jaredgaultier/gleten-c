@@ -17,9 +17,13 @@
 /*
 The commands will be here, in this buffer
 */
-//static char **commandBuffer = NULL;
+static char **commandBuffer = NULL;
 
-
+void userHelp(char *opt){
+    if (strcmp(opt, "help")){
+        printf("wip");
+    }
+}
 
 
 bool inCommandList(char const *command, char const *list[]){
@@ -38,6 +42,9 @@ bool inCommandList(char const *command, char const *list[]){
 }
 
 int displayPanel(char const *projectTitle){
+    // used for memory allocation
+    int n = 0;
+    
     size_t editingLine = 1;
 
     char _opc[100];
@@ -68,14 +75,42 @@ int displayPanel(char const *projectTitle){
             likenessFind(_opc);
 
         } else {
-            // if (inCommandList(_opc, ignoreCommandList))
+            if (inCommandList(_opc, ignoreCommandList)){
+                
+                userHelp(_opc);
 
-            _gotoxy(3, 3);
+            } else {
+                
+                char **temp = realloc(commandBuffer, (n + 1) * sizeof(char*));
+                
+                if (temp == NULL){
+                    printf("Memory error!");
+                    break;
+                }
 
-            cosmeticXAxisCleaning(18, 25);
+                commandBuffer = temp;
+
+                commandBuffer[n] = malloc(strlen(_opc) + 1);
+                strcpy(commandBuffer[n], _opc);
+                
+
+                cosmeticXAxisCleaning(16, 25);
+
+                _gotoxy(3, n + 3);
+            
+                printf(" %s", commandBuffer[n]);
+                
+                n++;
+            }
         }
 
     }
+
+    for (size_t i = 0;i < (size_t)n;i++){
+        free(commandBuffer[i]);
+    }
+
+    free(commandBuffer);
 
     return 0;
 }

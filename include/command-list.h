@@ -23,7 +23,8 @@ static char const *commandList[] = {
 
 static char const *ignoreCommandList[] = {
     "help",
-    "about"
+    "about",
+    NULL
 };
 
 #endif
