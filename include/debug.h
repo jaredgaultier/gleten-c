@@ -10,6 +10,6 @@ about loops, sizes, and more.
 
 #include <stdbool.h>
 
-static const bool DEBUG = true;
+static const bool DEBUG = false;
 
 #endif
