@@ -4,6 +4,9 @@
 #include <stddef.h>
 
 static char const *commandList[] = {
+    "help",
+    "about",
+
     "makefile",
     "deletefile",
 
@@ -16,6 +19,11 @@ static char const *commandList[] = {
     "editWallpaper",
     "if",
     NULL
+};
+
+static char const *ignoreCommandList[] = {
+    "help",
+    "about"
 };
 
 #endif

@@ -14,15 +14,21 @@
 #include "../include/command-list.h"
 
 
+/*
+The commands will be here, in this buffer
+*/
+static char **commandBuffer = NULL;
 
 
-bool inCommandList(char const *command){
+
+
+bool inCommandList(char const *command, char const *list){
     bool temp = false;
 
-    for (size_t i = 0;*(commandList + i) != NULL;i++){
-        if(DEBUG)printf("commandList[i]: %s\n", commandList[i]);
+    for (size_t i = 0;*(list + i) != NULL;i++){
+        if(DEBUG)printf("commandList[i]: %s\n", list[i]);
 
-        if (strcmp(command, commandList[i]) == 0){
+        if (strcmp(command, list[i]) == 0){
             return (temp = true);
 
         }
@@ -57,11 +63,15 @@ int displayPanel(char const *projectTitle){
         fgets(_opc, sizeof(_opc), stdin);
         removeNewLine(_opc, sizeof(_opc));
 
-        if (inCommandList(_opc) == false){
+        if (inCommandList(_opc, commandList) == false){
             
             likenessFind(_opc);
 
         } else {
+            // if (inCommandList(_opc, ignoreCommandList))
+
+            _gotoxy(3, 3);
+
             cosmeticXAxisCleaning(18, 25);
         }
 
