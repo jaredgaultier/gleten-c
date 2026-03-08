@@ -33,7 +33,6 @@ void likenessFind(char *command){
 
 
     if(n > 0){
-        cosmeticXAxisCleaning(18, 30);
         _gotoxy(1, 18);
         printf("%s\n", cosmetic_line);
 
