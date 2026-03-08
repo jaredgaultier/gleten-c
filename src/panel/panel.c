@@ -17,16 +17,16 @@
 /*
 The commands will be here, in this buffer
 */
-static char **commandBuffer = NULL;
+//static char **commandBuffer = NULL;
 
 
 
 
-bool inCommandList(char const *command, char const *list){
+bool inCommandList(char const *command, char const *list[]){
     bool temp = false;
 
     for (size_t i = 0;*(list + i) != NULL;i++){
-        if(DEBUG)printf("commandList[i]: %s\n", list[i]);
+        if(DEBUG)printf("list[i]: %s\n", list[i]);
 
         if (strcmp(command, list[i]) == 0){
             return (temp = true);
