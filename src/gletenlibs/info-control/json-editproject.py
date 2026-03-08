@@ -39,7 +39,11 @@ def main(project_title, element_to_edit, new_value=None):
     if element_to_edit == "data":
         # Tells to main.c where project will the user work on
         with open("temp.txt", 'w+') as temp_file:
-            temp_file.write(f"0;\n{project_title}<")
+            temp_file.write(f"0;{project_title}<")
+
+    else:
+        with open("temp.txt", "w+") as temp_file:
+            temp_file.write("1;")
 
 
 
