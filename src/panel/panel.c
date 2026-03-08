@@ -25,22 +25,6 @@ void userHelp(char *opt){
     }
 }
 
-
-bool inCommandList(char const *command, char const *list[]){
-    bool temp = false;
-
-    for (size_t i = 0;*(list + i) != NULL;i++){
-        if(DEBUG)printf("list[i]: %s\n", list[i]);
-
-        if (strcmp(command, list[i]) == 0){
-            return (temp = true);
-
-        }
-    }
-
-    return temp;
-}
-
 int displayPanel(char const *projectTitle){
     // used for memory allocation
     int n = 0;
@@ -52,7 +36,7 @@ int displayPanel(char const *projectTitle){
     system("clear"); // Clear the terminal before displaying the panel
 
     printf("\t::Editing %s::\n", projectTitle);
-    printf("\t   Editing line %zu\n", editingLine);
+    printf("\tEditing line %zu\n", editingLine);
 
         // The two variables here are y and x, which are the coordinates of the cursor in the terminal, and they are used to print the project title in the center of the terminal.
         for (size_t i = 1;i < 10; i++)
