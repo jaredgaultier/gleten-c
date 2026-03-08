@@ -21,6 +21,7 @@ bool inCommandList(char const *command){
 
     for (size_t i = 0;*(commandList + i) != NULL;i++){
         if(DEBUG)printf("commandList[i]: %s\n", commandList[i]);
+
         if (strcmp(command, commandList[i]) == 0){
             return (temp = true);
 
@@ -33,6 +34,8 @@ bool inCommandList(char const *command){
 int displayPanel(char const *projectTitle){
     size_t editingLine = 1;
 
+    char _opc[100];
+
     system("clear"); // Clear the terminal before displaying the panel
 
     printf("\t::Editing %s::\n", projectTitle);
@@ -43,22 +46,24 @@ int displayPanel(char const *projectTitle){
             printf("%zu: \n", (size_t)i);
 
 
-    char opc[100];
-
     // tf
+    getchar();
     printf("\n\n\n>> ");
 
-    while(strcmp(opc, "exit") != 0){
+    while(strcmp(_opc, "exit") != 0){
         _gotoxy(4, 15);printf("%s", cosmetic_longSpace);_gotoxy(4, 15);
 
         // clearCmd();
+        fgets(_opc, sizeof(_opc), stdin);
+        removeNewLine(_opc, sizeof(_opc));
 
+        if (inCommandList(_opc) == false){
+            
+            likenessFind(_opc);
 
-        fgets(opc, sizeof(opc), stdin);
-        removeNewLine(opc, sizeof(opc));
-
-        if (inCommandList(opc) == false)
-            likenessFind(opc);
+        } else {
+            cosmeticXAxisCleaning(18, 25);
+        }
 
     }
 
