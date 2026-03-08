@@ -6,9 +6,12 @@
 src/gletenlibs/info-control/test.py
 notas.txt
 
+temp.txt
+
 program
 
 build/
+test/
 
 *.log
 
