@@ -11,6 +11,8 @@ void cosmeticXAxisCleaning(size_t y, size_t y_limit);
 static char cosmetic_line[] = "------------";
 static char cosmetic_longSpace[] = "                               ";
 
+// veriy input dir
+
 bool inCommandList(char const *command, char const *list[]);
 
 #endif
