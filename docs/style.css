@@ -18,6 +18,19 @@
     transform: translateY(-5px);
 }
 
+.logo_config img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    transition: all 0.3s ease;
+}
+.logo_config img:hover {
+    transform: translateY(5px);
+}
+.logo_config img:active {
+    transform: translateY(-5px);
+}
+
 .config_buttons {
     display: flex;
     padding: 5px 700px;
@@ -65,7 +78,12 @@
 
 .button_download:active {
     transform: translateY(5px);
+    color: white;
     box-shadow: 0px 2px 10px rgba(3, 32, 20, 0.89);
+}
+.button_download a {
+    color: initial;
+    text-decoration: none;
 }
 
 .button_how_to_use {
@@ -87,4 +105,99 @@
 .button_how_to_use:active {
     transform: translateY(5px);
     box-shadow: 0px 2px 10px rgba(3, 32, 20, 0.89);
+}
+
+.installation_table {
+    display: flex;
+    padding: 200px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.table_gleten_installation {
+    border-collapse: collapse;
+    width: 90%;
+    padding: 90px;
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+.table_gleten_installation th, 
+.table_gleten_installation td {
+    padding: 18px 30px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+.table_gleten_installation th {
+    background-color: #f4f4f4;
+    min-width: 100px;
+    width: 40%;
+}
+.table_gleten_installation td:last-child {
+    white-space: nowrap; 
+    padding-left: 40px;
+}
+.button_return {
+    display: flex;
+    border: none;
+    height: 60px;
+    text-align: center;
+    gap: 15px;
+}
+.return_config {
+    background-color:rgb(3, 102, 61);;
+    font-size: 20px;
+    margin-top: 30px;
+    border: none;
+    padding: 1px 30px;
+    width: 150px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button_return,  .button_how_to_used {
+    display: inline-block;  
+    width: 200px;           
+    padding: 15px 0;       
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.return_config:hover {
+    transform: translateY(-5px);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(3, 32, 20, 0.89);
+}
+.return_config:active {
+    transform: translateY(5px);
+    color: white;
+    box-shadow: 0px 2px 10px rgba(3, 32, 20, 0.89);
+}
+
+.button_how_to_used {
+    background-color:rgb(3, 102, 61);
+    font-size: 18px;
+    margin-top: 30px;
+    border: none;
+    padding: 1px 10px;
+    width: 150px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button_how_to_used:hover {
+    transform: translateY(-5px);
+    color: white;
+    box-shadow: 0px 5px 15px rgba(3, 32, 20, 0.89);
+}
+.button_how_to_used:active {
+    transform: translateY(5px);
+    color: white;
+    box-shadow: 0px 2px 10px rgba(3, 32, 20, 0.89);
+}
+
+body  {
+    background-color: cadetblue;
 }
