@@ -198,6 +198,6 @@
     box-shadow: 0px 2px 10px rgba(3, 32, 20, 0.89);
 }
 
-body  {
+.body_config {
     background-color: cadetblue;
 }
