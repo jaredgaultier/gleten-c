@@ -21,21 +21,34 @@ def main(project_title, project_description, project_author):
 
 
 if __name__ == "__main__":
-    _project_title = str(input("Project title: "))
-    _project_description = str(input("Project description: "))
-    _project_author = str(input("Author: "))
 
-    if len(_project_title) > TITLE_LENGTH_MAX:
-        print(f"Project title exceeds the ({TITLE_LENGTH_MAX}) letters limit")
-        exit();
+    continue_to_main = False
 
-    if len(_project_description) > DESCRIPTION_LENGTH_MAX:
-        print(f"Project title exceeds the ({DESCRIPTION_LENGTH_MAX}) letters limit")
-        exit();
+    while True:
+        _project_title = str(input("Project title: "))
+        if len(_project_title) > TITLE_LENGTH_MAX:
+            print(f"Project title exceeds the ({TITLE_LENGTH_MAX}) letters limit")
+
+        else:
+            break
+
+    while True:    
+        _project_description = str(input("Project description: "))
+        if len(_project_description) > DESCRIPTION_LENGTH_MAX:
+            print(f"Project title exceeds the ({DESCRIPTION_LENGTH_MAX}) letters limit")
     
-    if len(_project_author) > AUTHOR_LENGTH_MAX:
-        print(f"Project title exceeds the ({AUTHOR_LENGTH_MAX}) letters limit")
-        exit();
+        else:
+            break
+        
+    while True:
+        _project_author = str(input("Author: "))
+        if len(_project_author) > AUTHOR_LENGTH_MAX:
+            print(f"Project title exceeds the ({AUTHOR_LENGTH_MAX}) letters limit")
+
+        else:
+            break
+    
+                        
 
     print("Making a new project...")
     main(_project_title, _project_description, _project_author)
