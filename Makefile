@@ -4,6 +4,8 @@ CFLAGS = -Wall -Wextra -Iinclude -MMD -MP
 SRC = src/main.c \
 	src/panel/panel.c \
 	src/panel/cosmetic.c \
+	src/panel/verifyInput/in-command-list.c \
+	src/gletenlibs/stack_panel.c \
 	src/gletenlibs/gleten-string/_gotoxy.c \
 	src/gletenlibs/gleten-string/clear.c \
 	src/gletenlibs/gleten-string/likeness.c \
