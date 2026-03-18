@@ -21,10 +21,25 @@ static char const *commandList[] = {
     NULL
 };
 
+
+// - Non-functional commands 
+
 static char const *ignoreCommandList[] = {
     "help",
     "about",
     NULL
+};
+
+// -
+
+static char const *parameterCommandList[] = {
+    "makefile", 
+    "deletefile",
+
+    "makedir",
+    "deletedir",
+
+    "editWallpaper"
 };
 
 #endif
