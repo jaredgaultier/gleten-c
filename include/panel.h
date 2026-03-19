@@ -22,14 +22,4 @@ static char cosmetic_longSpace[] = "       ";
 
 
 
-
-
-
-
-
-
-// belongs to panel.c
-
-bool inCommandList(char const *command, char const *list[]);
-
 #endif

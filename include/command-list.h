@@ -3,12 +3,16 @@
 
 #include <stddef.h>
 
+// belongs to panel.c
+bool inCommandList(char const *command, char const *list[]);
+
+
 static char const *commandList[] = {
     "help",
     "about",
 
     "makefile",
-    "deletefile",
+    "removefile",
 
     "fileExists",
 
