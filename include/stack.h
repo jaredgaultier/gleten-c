@@ -12,7 +12,7 @@ typedef struct _stack {
 } stack;
 
 
-void stackConstructor(stack *__a);
+void stackInit(stack *__a);
 void push(stack *st, char *value);
 void pop(stack *st, char *value);
 void cleanStackMemory(stack *st);
