@@ -6,7 +6,6 @@ typedef struct _stack {
 
     char **elements;
     int countElements;
-    int elementId;
 
 
 } stack;
@@ -14,7 +13,7 @@ typedef struct _stack {
 
 void stackInit(stack *__a);
 void push(stack *st, char *value);
-void pop(stack *st, char *value);
+void pop(stack *st);
 void cleanStackMemory(stack *st);
 
 

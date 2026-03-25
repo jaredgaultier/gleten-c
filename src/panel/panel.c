@@ -14,20 +14,8 @@
 #include "../include/command-list.h"
 #include "../include/stack.h"
 
-/*
-typedef struct command {
-    
-    char **commandBuffer;
-    size_t commandCount;
-    size_t commandId;
-
-} c;*/
-
-
-
 // Here will be all the command input by the user
 stack commandStack;
-
 
 void userHelp(char *opt){
     if (strcmp(opt, "help")){
@@ -36,15 +24,14 @@ void userHelp(char *opt){
 }
 
 int displayPanel(char const *projectTitle){
+
+    size_t visualXPos = 3;
     
-    size_t editingLine = 1;
 
-    char _opc[100];
-
-    system("clear"); // Clear the terminal before displaying the panel
+    system("clear"); // Clears the terminal before displaying the panel
 
     printf("\t::Editing %s::\n", projectTitle);
-    printf("\tEditing line %zu\n", editingLine);
+    printf("\tEditing line %zu\n", (visualXPos - 1));
     for (size_t i = 1;i < 10; i++)
         printf("%zu: \n", (size_t)i);
 
@@ -53,25 +40,91 @@ int displayPanel(char const *projectTitle){
     // avoids stdin trash
     getchar();
 
+    char _opc[100] = {0};
 
 
+    char _opcParameter[254] = {0};
 
-    printf("\n>> ");
+    // INITS STACK
+	stackInit(&commandStack);
+    stack *_commandStack = &commandStack; // pointer to command stack
+
+    size_t pushCount = 0;
 
     while(strcmp(_opc, "exit") != 0){
-        	_gotoxy(4, 13);printf("%s", cosmetic_longSpace);_gotoxy(4, 13);
+        // reset _opc and _opcParameter buffer
+        memset(_opc, 0, sizeof(_opc));
+        memset(_opcParameter, 0, sizeof(_opcParameter));
+        
+        
+        cosmeticXAxisCleaning(12, 30);
 
-        	// clearCmd();
-        	fgets(_opc, sizeof(_opc), stdin);
-        	removeNewLine(_opc, sizeof(_opc));
+        _gotoxy(4, 12);
+        printf("%s", cosmetic_longSpace);
 
-		// INITS STACK
-		stackConstructor(&commandStack);
+        _gotoxy(4, 12);
 
-	
-		// LIBERATES STACK HEAP DATA
-		cleanStackMemory(&commandStack);
-	}
+        printf("\n>> ");
+
+
+        fgets(_opc, sizeof(_opc), stdin); // Reads user input
+        removeNewLine(_opc, sizeof(_opc)); // Removes \n at the end of _opc
+
+        int runInputResult = runInput(_opc, &commandStack);
+
+        if (runInputResult == 5){
+
+            parameterControl(_opc, _opcParameter, sizeof(_opcParameter));
+            
+            char _temp[254] = {0};
+            char _pushValue[354] = {0};
+            
+            for (size_t i = 0;_opcParameter[i] != '\0';i++){
+
+                _temp[i] = _opcParameter[i];
+
+                printf("%c", _temp[i]);
+
+            }
+
+            snprintf(_pushValue, sizeof(_pushValue), "%s\"%s\"", _opc, _temp);
+
+            printf("result: %s", _pushValue);
+            getchar();
+
+            push(&commandStack, _pushValue);
+
+            _gotoxy(4, visualXPos);
+            
+            if ((size_t)_commandStack -> countElements > pushCount){
+                
+                printf("%s", _commandStack -> elements[pushCount]);
+
+                pushCount++;
+
+                visualXPos++;
+            }
+        }
+
+        if(runInputResult == 1){
+            
+            _gotoxy(4, visualXPos);
+            
+            if ((size_t)_commandStack -> countElements > pushCount){
+                
+                printf("%s", _commandStack -> elements[pushCount]);
+
+                
+                pushCount++;
+
+                visualXPos++;
+            }
+        }
+
+    }
+
+    // LIBERATES STACK HEAP DATA
+    cleanStackMemory(&commandStack);
 
     return 0;
 }

@@ -3,10 +3,11 @@
 #include <string.h>
 
 #include "../../include/stack.h"
+#include "../../include/debug.h"
 
 
 
-void stackConstructor(stack *__a){
+void stackInit(stack *__a){
 
     __a->elements = NULL;
     __a->countElements = 0;
@@ -29,22 +30,20 @@ void push(stack *st, char *value){
     st->countElements++;
 }
 
-void pop(stack *st, char *value){
-    for (size_t i = 0;i < (size_t)st -> countElements;i++){
-        
-        if (strcmp(st->elements[i], value) == 0){
-            
-            free(st->elements[i]);
-            
-            for (size_t j = i;j < (size_t)st -> countElements-1;j++)
-                st->elements[j] = st -> elements[j + 1];
+void pop(stack *st){
+    if (st->countElements == 0)
+        return;
 
-            st->countElements -= 1;
-            break;   
-        }
+    free(st->elements[st->countElements - 1]);
+    st->countElements--;
 
-    }
-    
+    char **temp = realloc(
+        st->elements,
+        st->countElements * sizeof(*st->elements)
+    );
+
+    if (temp != NULL || st->countElements == 0)
+        st->elements = temp;
     
 }
 

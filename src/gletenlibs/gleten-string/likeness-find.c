@@ -11,11 +11,11 @@ void likenessFind(char *command){
     char **arLikeness = NULL;
     int n = 0;
 
-    for (size_t i = 0;*(commandList + i) != NULL;i++){
-        if(DEBUG)
-            printf("comparing: %s-%s >> %d\n", (char*)commandList[i], command, stringLikeness((char*)commandList[i], command) );
+    for (size_t i = 0;*(functionalCommandList + i) != NULL;i++){
+        // if(DEBUG)
+        //    printf("comparing: %s-%s >> %d\n", (char*)functionalCommandList[i], command, stringLikeness((char*)functionalCommandList[i], command) );
 
-        if(stringLikeness((char*)commandList[i], command) == 1){
+        if(stringLikeness((char*)functionalCommandList[i], command) == 1){
             char **temp = realloc(arLikeness, (n + 1) * sizeof(char*));
 
             if (temp == NULL){
@@ -24,8 +24,8 @@ void likenessFind(char *command){
             }
 
             arLikeness = temp;
-            arLikeness[n] = malloc(strlen(commandList[i]) + 1);
-            strcpy(arLikeness[n], commandList[i]);
+            arLikeness[n] = malloc(strlen(functionalCommandList[i]) + 1);
+            strcpy(arLikeness[n], functionalCommandList[i]);
             n++;
         }
 
