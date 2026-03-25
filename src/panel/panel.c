@@ -89,9 +89,6 @@ int displayPanel(char const *projectTitle){
 
             snprintf(_pushValue, sizeof(_pushValue), "%s\"%s\"", _opc, _temp);
 
-            printf("result: %s", _pushValue);
-            getchar();
-
             push(&commandStack, _pushValue);
 
             _gotoxy(4, visualXPos);
