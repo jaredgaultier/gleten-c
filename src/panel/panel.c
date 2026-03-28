@@ -7,6 +7,7 @@
 
 #include <string.h>
 #include <stdlib.h> // pointers
+#include <ncurses.h> // Visuals
 
 
 #include "../include/panel.h"
@@ -24,6 +25,7 @@ void userHelp(char *opt){
 }
 
 int displayPanel(char const *projectTitle){
+
 
     size_t visualXPos = 3;
     
@@ -118,6 +120,48 @@ int displayPanel(char const *projectTitle){
             }
         }
 
+    }
+
+    if (_commandStack -> countElements > 0){
+        // ---- NCURSES CONF ----
+        initscr();
+        cbreak();
+        noecho();
+        start_color(); // for color usage
+        keypad(stdscr, TRUE);
+
+        init_pair(1, COLOR_WHITE, COLOR_GREEN); // green gb template init
+        // ----------------------      
+    
+        int option;
+
+        attron(COLOR_PAIR(1));
+        printw("EXPORT SCRIPT? [Y/N]: ");
+        attroff(COLOR_PAIR(1));
+
+        while (1) {
+            option = getch();
+
+            if (option == 'Y' || option == 'y'){
+
+
+                exportData(&commandStack, (char *)projectTitle);
+
+
+                break;
+            }
+
+            else if (option == 'N' || option == 'n'){
+                break;
+            }
+
+        }
+
+        // ---- NCURSES CONF ----
+        refresh();
+        getch();
+        endwin();
+        // ----------------------
     }
 
     // LIBERATES STACK HEAP DATA
