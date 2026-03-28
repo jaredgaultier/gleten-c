@@ -28,8 +28,8 @@ RM = rm -f
 
 .PHONY: clean
 
-program: $(OBJ)
-	$(CC) $(NCURSES) $(OBJ) -o program
+build: $(OBJ)
+	$(CC) $(NCURSES) $(OBJ) -o build
 
 
 test_stack: $(STACK_TESTING_SRC)
