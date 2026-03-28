@@ -12,6 +12,8 @@ int runInput(char *opc, stack* _stack);
 
 void parameterControl(char *opc, char* paramBuffer, size_t sizeBuffer);
 
+int exportData(stack *_stack, char *projectTitle);
+
 
 
 
