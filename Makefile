@@ -1,9 +1,15 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Iinclude -MMD -MP
 
+NCURSES = -lncurses
+
+STACK_TESTING_SRC = test/test-stack.c \
+	src/gletenlibs/stack_panel.c
+
 SRC = src/main.c \
 	src/panel/panel.c \
 	src/panel/cosmetic.c \
+	src/panel/export-data.c \
 	src/panel/input/input.c \
 	src/panel/input/verify-input/in-command-list.c \
 	src/panel/input/verify-input/verify.c \
@@ -23,7 +29,11 @@ RM = rm -f
 .PHONY: clean
 
 program: $(OBJ)
-	$(CC) $(OBJ) -o program
+	$(CC) $(NCURSES) $(OBJ) -o program
+
+
+test_stack: $(STACK_TESTING_SRC)
+	$(CC) $(STACK_TESTING_SRC) -o test_stack
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
