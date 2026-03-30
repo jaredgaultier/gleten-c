@@ -8,8 +8,7 @@
 bool inCommandList(char const *command, char const *list[]){
     bool btemp = false;
 
-    for (size_t i = 0;*(list + i) != NULL;i++){
-        if(DEBUG)printf("list[i]: %s\n", list[i]);
+    for (size_t i = 0;list[i] != NULL;i++){        
 
         if (strcmp(command, list[i]) == 0){
             return (btemp = true);
