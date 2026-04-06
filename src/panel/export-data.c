@@ -5,6 +5,9 @@
 
 #include "../../include/stack.h"
 
+// The command must be written like this:
+// command \n\0
+
 
 int exportData(stack *_stack, char *projectTitle){
 
@@ -13,7 +16,7 @@ int exportData(stack *_stack, char *projectTitle){
     
     char projectPath[100] = "gleten-projects/";
 
-    snprintf(projectPath, sizeof(projectPath), "gleten-projects/%s/data/%s.glt", projectTitle, projectTitle);
+    snprintf(projectPath, sizeof(projectPath), "gleten-projects/%s/data/data.glt", projectTitle);
 
     FILE *fptr = fopen(projectPath, "w");
     if (fptr == NULL){
