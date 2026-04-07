@@ -15,7 +15,8 @@ test/
 src/gletenlibs/info-control/test.py
 notas.txt
 
-program
+# Program executable
+build
 
 build/
 
