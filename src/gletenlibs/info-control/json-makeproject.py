@@ -6,16 +6,18 @@ DESCRIPTION_LENGTH_MAX = 500
 AUTHOR_LENGTH_MAX = 20
 
 def main(project_title, project_description, project_author):
-    
+
+    PROJ_PATH = f"gleten-projects/{project_info["title"]}"
+
     project_info = {
         "title": project_title,
         "description": project_description,
         "author": project_author
     }
 
-    os.mkdir(f"gleten-projects/{project_info['title']}")
+    os.mkdir(PROJ_PATH)
 
-    with open(f"gleten-projects/{project_info['title']}/info.json", 'w') as json_file:
+    with open(f"{PROJ_PATH}/info.json", 'w') as json_file:
         json.dump(project_info, json_file, indent=4)
 
 
